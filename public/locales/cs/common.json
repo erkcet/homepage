@@ -61,15 +61,15 @@
         "wlan_devices": "Zařízení WLAN",
         "lan_users": "Uživatelé LAN",
         "wlan_users": "Uživatelé WLAN",
-        "up": "UP",
+        "up": "BĚŽÍ",
         "down": "NEFUNKČNÍ",
-        "wait": "Please wait",
+        "wait": "Čekejte prosím",
         "empty_data": "Stav podsystému neznámý"
     },
     "docker": {
         "rx": "RX",
         "tx": "TX",
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "CPU",
         "running": "Běží",
         "offline": "Offline",
@@ -83,7 +83,7 @@
         "partial": "Částečný"
     },
     "ping": {
-        "error": "Error",
+        "error": "Chyba",
         "ping": "Odezva",
         "down": "Výpadek",
         "up": "Běží",
@@ -91,11 +91,11 @@
     },
     "siteMonitor": {
         "http_status": "Stav HTTP",
-        "error": "Error",
+        "error": "Chyba",
         "response": "Odpověď",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "Výpadek",
+        "up": "Běží",
+        "not_available": "Nedostupný"
     },
     "emby": {
         "playing": "Přehrává",
@@ -108,21 +108,21 @@
         "songs": "Skladby"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "Přehrává se",
+        "transcoding": "Překódovávání",
+        "bitrate": "Přenosová rychlost",
+        "no_active": "Žádný aktivní stream",
+        "movies": "Filmy",
+        "series": "Seriály",
+        "episodes": "Epizody",
+        "songs": "Skladby"
     },
     "esphome": {
         "offline": "Offline",
         "offline_alt": "Offline",
         "online": "Online",
-        "total": "Total",
-        "unknown": "Unknown"
+        "total": "Celkem",
+        "unknown": "Neznámý"
     },
     "evcc": {
         "pv_power": "Produkce",
@@ -143,7 +143,7 @@
         "unread": "Nepřečteno"
     },
     "fritzbox": {
-        "connectionStatus": "Status",
+        "connectionStatus": "Stav",
         "connectionStatusUnconfigured": "Nenastaveno",
         "connectionStatusConnecting": "Připojuji",
         "connectionStatusAuthenticating": "Ověřování",
@@ -151,11 +151,11 @@
         "connectionStatusDisconnecting": "Odpojování",
         "connectionStatusDisconnected": "Odpojeno",
         "connectionStatusConnected": "",
-        "uptime": "Uptime",
+        "uptime": "Celkový čas běhu",
         "maxDown": "Max. Down",
         "maxUp": "Max. Up",
-        "down": "Down",
-        "up": "Up",
+        "down": "Výpadek",
+        "up": "Běží",
         "received": "Přijaté",
         "sent": "Odeslané",
         "externalIPAddress": "Ext. IP",
@@ -178,11 +178,18 @@
         "passes": "Průchody"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "playing": "Přehrává se",
+        "transcoding": "Překódovávání",
+        "bitrate": "Přenosová rychlost",
+        "no_active": "Žádný aktivní stream",
         "plex_connection_error": "Zkontrolujte připojení Plexu"
+    },
+    "tracearr": {
+        "no_active": "Žádný aktivní stream",
+        "streams": "Streamy",
+        "transcodes": "Překódování",
+        "directplay": "Přímé přehrávání",
+        "bitrate": "Přenosová rychlost"
     },
     "omada": {
         "connectedAp": "Připojené APs",
@@ -199,30 +206,30 @@
     "plex": {
         "streams": "Aktivní streamy",
         "albums": "Alba",
-        "movies": "Movies",
+        "movies": "Filmy",
         "tv": "Seriály"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "Rychlost",
         "queue": "Fronta",
         "timeleft": "Zbývající čas"
     },
     "rutorrent": {
         "active": "Aktivní",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Nahrávání",
+        "download": "Stahování"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Stahování",
+        "upload": "Nahrávání",
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Stahování",
+        "upload": "Nahrávání",
+        "leech": "Leechované",
+        "seed": "Seedované"
     },
     "qnap": {
         "cpuUsage": "Využití procesoru",
@@ -233,9 +240,9 @@
         "invalid": "Neplatné"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
+        "download": "Stahování",
+        "upload": "Nahrávání",
+        "leech": "Leechované",
         "seed": "Seed"
     },
     "develancacheui": {
@@ -282,17 +289,13 @@
         "approved": "Schváleno",
         "available": "Dostupné"
     },
-    "jellyseerr": {
+    "seerr": {
         "pending": "Pending",
         "approved": "Approved",
         "available": "Available",
+        "completed": "Completed",
+        "processing": "Processing",
         "issues": "Open Issues"
-    },
-    "overseerr": {
-        "pending": "Pending",
-        "processing": "Zpracovávání",
-        "approved": "Approved",
-        "available": "Available"
     },
     "netalertx": {
         "total": "Total",
@@ -421,46 +424,46 @@
     },
     "medusa": {
         "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "queued": "Ve frontě",
+        "series": "Seriály"
     },
     "minecraft": {
         "players": "Hráči",
         "version": "Verze",
-        "status": "Status",
+        "status": "Stav",
         "up": "Online",
         "down": "Offline"
     },
     "miniflux": {
         "read": "Přečteno",
-        "unread": "Unread"
+        "unread": "Nepřečteno"
     },
     "authentik": {
-        "users": "Users",
+        "users": "Uživatelé",
         "loginsLast24H": "Příhlášení (24h)",
         "failedLoginsLast24H": "Neúspěšná přihlášení (24h)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "RAM",
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "Virtuální Stroje"
     },
     "glances": {
         "cpu": "CPU",
-        "load": "Load",
-        "wait": "Please wait",
-        "temp": "TEMP",
+        "load": "Zatížení",
+        "wait": "Čekejte prosím",
+        "temp": "TEPLOTA",
         "_temp": "Teplota",
         "warn": "Varováni",
-        "uptime": "UP",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
+        "uptime": "BĚŽÍ",
+        "total": "Celkem",
+        "free": "Volné",
+        "used": "Využité",
         "days": "d",
         "hours": "h",
         "crit": "Kritické",
-        "read": "Read",
+        "read": "Přečteno",
         "write": "Zápis",
         "gpu": "Grafická karta",
         "mem": "Pamět RAM",
@@ -472,7 +475,7 @@
         "search": "Hledat",
         "custom": "Vlastní",
         "visit": "Navštivte",
-        "url": "URL",
+        "url": "Odkaz",
         "searchsuggestion": "Doporučení"
     },
     "wmo": {
@@ -481,56 +484,56 @@
         "1-day": "Převážně slunečno",
         "1-night": "Převážně jasno",
         "2-day": "Polojasno",
-        "2-night": "Partly Cloudy",
+        "2-night": "Polojasno",
         "3-day": "Oblačno",
-        "3-night": "Cloudy",
+        "3-night": "Oblačno",
         "45-day": "Mlha",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
+        "45-night": "Mlha",
+        "48-day": "Mlha",
+        "48-night": "Mlha",
         "51-day": "Lehké mrholení",
-        "51-night": "Light Drizzle",
+        "51-night": "Lehké mrholení",
         "53-day": "Mrholení",
-        "53-night": "Drizzle",
+        "53-night": "Mrholení",
         "55-day": "Silné mrholení",
-        "55-night": "Heavy Drizzle",
+        "55-night": "Silné mrholení",
         "56-day": "Mírné mrznoucí mrholení",
-        "56-night": "Light Freezing Drizzle",
+        "56-night": "Mírné mrznoucí mrholení",
         "57-day": "Mrznoucí mrholení",
-        "57-night": "Freezing Drizzle",
+        "57-night": "Mrznoucí mrholení",
         "61-day": "Slabý déšť",
-        "61-night": "Light Rain",
+        "61-night": "Slabý déšť",
         "63-day": "Déšť",
-        "63-night": "Rain",
+        "63-night": "Déšť",
         "65-day": "Silný déšť",
-        "65-night": "Heavy Rain",
+        "65-night": "Silný déšť",
         "66-day": "Mrznoucí déšť",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
+        "66-night": "Mrznoucí déšť",
+        "67-day": "Mrznoucí déšť",
+        "67-night": "Mrznoucí déšť",
         "71-day": "Slabé sněžení",
-        "71-night": "Light Snow",
+        "71-night": "Slabé sněžení",
         "73-day": "Sněžení",
-        "73-night": "Snow",
+        "73-night": "Sněžení",
         "75-day": "Silné sněžení",
-        "75-night": "Heavy Snow",
+        "75-night": "Silné sněžení",
         "77-day": "Sněhová zrna",
-        "77-night": "Snow Grains",
+        "77-night": "Sněhová zrna",
         "80-day": "Lehké přeháňky",
-        "80-night": "Light Showers",
+        "80-night": "Lehké přeháňky",
         "81-day": "Přeháňky",
-        "81-night": "Showers",
+        "81-night": "Přeháňky",
         "82-day": "Silné přeháňky",
-        "82-night": "Heavy Showers",
+        "82-night": "Silné přeháňky",
         "85-day": "Déšť se sněhem",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
+        "85-night": "Déšť se sněhem",
+        "86-day": "Déšť se sněhem",
+        "86-night": "Déšť se sněhem",
         "95-day": "Bouřka",
-        "95-night": "Thunderstorm",
+        "95-night": "Bouřka",
         "96-day": "Bouřka s krupobitím",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
+        "96-night": "Bouřka s krupobitím",
+        "99-day": "Bouřka s krupobitím",
         "99-night": "Thunderstorm With Hail"
     },
     "homebridge": {
@@ -1171,5 +1174,11 @@
         "paused": "Paused",
         "total": "Total",
         "environment_not_found": "Environment Not Found"
+    },
+    "sparkyfitness": {
+        "eaten": "Eaten",
+        "burned": "Burned",
+        "remaining": "Remaining",
+        "steps": "Steps"
     }
 }
