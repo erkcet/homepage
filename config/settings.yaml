@@ -1,0 +1,71 @@
+title: VPS
+background:
+  image: https://cdnb.artstation.com/p/assets/images/images/006/897/659/large/mikael-gustafsson-wallpaper-mikael-gustafsson.jpg
+  blur: sm
+  saturate: 100
+  brightness: 50
+  opacity: 100
+theme: dark
+statusStyle: dot
+color: slate
+useEqualHeights: true
+layout:
+  Downloads:
+    tab: Media
+    header: true
+    style: row
+    columns: 3
+  Media Management:
+    tab: Media
+    header: true
+    style: row
+    columns: 3
+  Upcoming:
+    tab: Media
+    header: true
+    style: row
+    columns: 2
+  Streaming:
+    tab: Media
+    header: true
+    style: row
+    columns: 3
+  Tools:
+    header: true
+    style: row
+    columns: 3
+  Steam:
+    tab: Gaming
+    header: true
+    style: row
+    columns: 3
+  Gaming:
+    tab: Gaming
+    header: true
+    style: row
+    columns: 4
+  VPS Storage:
+    tab: System
+    header: true
+    style: row
+    columns: 2
+  Ubuntu Storage:
+    tab: System
+    header: true
+    style: row
+    columns: 5
+  Pi-hole:
+    tab: System
+    header: true
+    style: row
+    columns: 2
+  Pi5:
+    tab: System
+    header: true
+    style: row
+    columns: 4
+  Infrastructure:
+    tab: System
+    header: true
+    style: row
+    columns: 4

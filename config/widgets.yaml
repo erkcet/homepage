@@ -1,0 +1,16 @@
+---
+- resources:
+    cpu: true
+    memory: true
+    cputemp: true
+    tempmin: 0
+    tempmax: 100
+    uptime: true
+    units: metric
+    refresh: 3000
+    network: true
+
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: short

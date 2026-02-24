@@ -1,0 +1,21 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Trackers:
+    - SeedPool:
+        - abbr: SP
+          href: https://seedpool.org/
+    - TorrentLeech:
+        - abbr: TL
+          href: https://torrentleech.org
+
+- Social:
+    - Reddit:
+        - abbr: RE
+          href: https://reddit.com/
+
+- Entertainment:
+    - YouTube:
+        - abbr: YT
+          href: https://youtube.com/
