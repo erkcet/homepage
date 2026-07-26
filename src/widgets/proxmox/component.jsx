@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -67,8 +67,16 @@ export default function Component({ service }) {
     <Container service={service}>
       <Block label="proxmox.vms" value={`${runningVMs} / ${vms.length}`} />
       <Block label="proxmox.lxc" value={`${runningLXC} / ${lxc.length}`} />
-      <Block label="resources.cpu" value={t("common.percent", { value: (usedCpu / maxCpu) * 100 })} />
-      <Block label="resources.mem" value={t("common.percent", { value: (usedMemory / maxMemory) * 100 })} />
+      <Block
+        label="resources.cpu"
+        value={t("common.percent", { value: (usedCpu / maxCpu) * 100 })}
+        highlightValue={(usedCpu / maxCpu) * 100}
+      />
+      <Block
+        label="resources.mem"
+        value={t("common.percent", { value: (usedMemory / maxMemory) * 100 })}
+        highlightValue={(usedMemory / maxMemory) * 100}
+      />
     </Container>
   );
 }

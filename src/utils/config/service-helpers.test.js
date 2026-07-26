@@ -40,10 +40,12 @@ const { state, fs, yaml, config, Docker, dockerCfg, kubeCfg, kubeApi } = vi.hois
     default: vi.fn(),
   };
 
-  const Docker = vi.fn((conn) => ({
-    listContainers: vi.fn(async () => state.dockerContainersByServer[conn?.serverName] ?? state.dockerContainers),
-    listServices: vi.fn(async () => state.dockerServicesByServer[conn?.serverName] ?? state.dockerContainers),
-  }));
+  const Docker = vi.fn(function Docker(conn) {
+    return {
+      listContainers: vi.fn(async () => state.dockerContainersByServer[conn?.serverName] ?? state.dockerContainers),
+      listServices: vi.fn(async () => state.dockerServicesByServer[conn?.serverName] ?? state.dockerContainers),
+    };
+  });
 
   const dockerCfg = {
     default: vi.fn((serverName) => ({ conn: { serverName } })),
@@ -367,6 +369,47 @@ describe("utils/config/service-helpers", () => {
     );
     expect(widgets.find((w) => w.type === "jellystat")).toEqual(expect.objectContaining({ days: 7 }));
     expect(widgets.find((w) => w.type === "lubelogger")).toEqual(expect.objectContaining({ vehicleID: 12 }));
+  });
+
+  it("cleanServiceGroups removes calendar integration urls from frontend widget payload", async () => {
+    const mod = await import("./service-helpers");
+    const { cleanServiceGroups } = mod;
+
+    const rawGroups = [
+      {
+        name: "Core",
+        services: [
+          {
+            name: "Calendar",
+            weight: 100,
+            widgets: [
+              {
+                type: "calendar",
+                integrations: [
+                  {
+                    type: "ical",
+                    name: "EPL Fixtures",
+                    url: "https://calendar.google.com/calendar/ical/example/public/basic.ics",
+                    color: "purple",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+        groups: [],
+      },
+    ];
+
+    const cleaned = cleanServiceGroups(rawGroups);
+    const calendarWidget = cleaned[0].services[0].widgets[0];
+    expect(calendarWidget.integrations).toEqual([
+      {
+        type: "ical",
+        name: "EPL Fixtures",
+        color: "purple",
+      },
+    ]);
   });
 
   it("findGroupByName deep-searches and annotates parent", async () => {

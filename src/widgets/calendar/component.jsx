@@ -1,6 +1,6 @@
 import Container from "components/services/widget/container";
 import { DateTime } from "luxon";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import dynamic from "next/dynamic";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { SettingsContext } from "utils/contexts/settings";
@@ -73,7 +73,13 @@ export default function Component({ service }) {
         ?.filter((integration) => integration?.type)
         .map((integration) => ({
           // Include the extension so Vite/Vitest can statically validate the import base.
-          service: dynamic(() => import(`./integrations/${integration.type}.jsx`)),
+          service: dynamic(
+            () =>
+              import(
+                /* webpackExclude: /\.test\.jsx$/ */
+                `./integrations/${integration.type}.jsx`
+              ),
+          ),
           widget: { ...widget, ...integration },
         })) ?? [],
     [widget],

@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -34,8 +34,8 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="rutorrent.active" value={active.length} />
-      <Block label="rutorrent.upload" value={t("common.byterate", { value: upload })} />
-      <Block label="rutorrent.download" value={t("common.byterate", { value: download })} />
+      <Block label="rutorrent.upload" value={t("common.byterate", { value: upload })} highlightValue={upload} />
+      <Block label="rutorrent.download" value={t("common.byterate", { value: download })} highlightValue={download} />
     </Container>
   );
 }

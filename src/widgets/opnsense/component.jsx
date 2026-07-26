@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -36,10 +36,22 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2) })} />
+      <Block label="opnsense.cpu" value={t("common.percent", { value: cpu.toFixed(2) })} highlightValue={cpu} />
       <Block label="opnsense.memory" value={memory} />
-      {wan && <Block label="opnsense.wanUpload" value={t("common.bytes", { value: wan["bytes transmitted"] })} />}
-      {wan && <Block label="opnsense.wanDownload" value={t("common.bytes", { value: wan["bytes received"] })} />}
+      {wan && (
+        <Block
+          label="opnsense.wanUpload"
+          value={t("common.bytes", { value: wan["bytes transmitted"] })}
+          highlightValue={wan["bytes transmitted"]}
+        />
+      )}
+      {wan && (
+        <Block
+          label="opnsense.wanDownload"
+          value={t("common.bytes", { value: wan["bytes received"] })}
+          highlightValue={wan["bytes received"]}
+        />
+      )}
     </Container>
   );
 }

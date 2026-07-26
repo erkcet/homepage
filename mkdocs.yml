@@ -26,6 +26,7 @@ nav:
       - configs/kubernetes.md
       - configs/docker.md
       - configs/proxmox.md
+      - configs/mcp.md
       - configs/custom-css-js.md
   - "Widgets":
       - widgets/index.md
@@ -60,6 +61,7 @@ nav:
           - widgets/services/dispatcharr.md
           - widgets/services/dockhand.md
           - widgets/services/downloadstation.md
+          - widgets/services/duplicati.md
           - widgets/services/emby.md
           - widgets/services/esphome.md
           - widgets/services/evcc.md
@@ -116,6 +118,7 @@ nav:
           - widgets/services/nextcloud.md
           - widgets/services/nextdns.md
           - widgets/services/nginx-proxy-manager.md
+          - widgets/services/ntfy.md
           - widgets/services/nzbget.md
           - widgets/services/octoprint.md
           - widgets/services/omada.md
@@ -140,6 +143,7 @@ nav:
           - widgets/services/proxmox.md
           - widgets/services/proxmoxbackupserver.md
           - widgets/services/pterodactyl.md
+          - widgets/services/pulse.md
           - widgets/services/pyload.md
           - widgets/services/qbittorrent.md
           - widgets/services/qnap.md
@@ -160,6 +164,7 @@ nav:
           - widgets/services/suwayomi.md
           - widgets/services/swagdashboard.md
           - widgets/services/syncthing-relay-server.md
+          - widgets/services/syncthing.md
           - widgets/services/tailscale.md
           - widgets/services/tandoor.md
           - widgets/services/technitium.md
@@ -171,6 +176,7 @@ nav:
           - widgets/services/truenas.md
           - widgets/services/tubearchivist.md
           - widgets/services/unifi-controller.md
+          - widgets/services/unifi-drive.md
           - widgets/services/unmanic.md
           - widgets/services/unraid.md
           - widgets/services/uptime-kuma.md

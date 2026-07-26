@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -33,9 +33,9 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="downloadstation.leech" value={t("common.number", { value: leech })} />
-      <Block label="downloadstation.download" value={t("common.byterate", { value: rateDl })} />
+      <Block label="downloadstation.download" value={t("common.byterate", { value: rateDl })} highlightValue={rateDl} />
       <Block label="downloadstation.seed" value={t("common.number", { value: completed })} />
-      <Block label="downloadstation.upload" value={t("common.byterate", { value: rateUl })} />
+      <Block label="downloadstation.upload" value={t("common.byterate", { value: rateUl })} highlightValue={rateUl} />
     </Container>
   );
 }

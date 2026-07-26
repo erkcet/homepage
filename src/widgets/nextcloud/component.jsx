@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { useMemo } from "react";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
@@ -56,12 +56,23 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       {showCpuLoad && (
-        <Block label="nextcloud.cpuload" value={t("common.percent", { value: nextcloudInfo.system.cpuload[0] })} />
+        <Block
+          label="nextcloud.cpuload"
+          value={t("common.percent", { value: nextcloudInfo.system.cpuload[0] })}
+          highlightValue={nextcloudInfo.system.cpuload[0]}
+        />
       )}
-      {showMemoryUsage && <Block label="nextcloud.memoryusage" value={t("common.percent", { value: memoryUsage })} />}
+      {showMemoryUsage && (
+        <Block
+          label="nextcloud.memoryusage"
+          value={t("common.percent", { value: memoryUsage })}
+          highlightValue={memoryUsage}
+        />
+      )}
       <Block
         label="nextcloud.freespace"
         value={t("common.bbytes", { value: nextcloudInfo.system.freespace, maximumFractionDigits: 1 })}
+        highlightValue={nextcloudInfo.system.freespace}
       />
       <Block label="nextcloud.activeusers" value={t("common.number", { value: activeUsers.last24hours })} />
       <Block label="nextcloud.numfiles" value={t("common.number", { value: nextcloudInfo.storage.num_files })} />

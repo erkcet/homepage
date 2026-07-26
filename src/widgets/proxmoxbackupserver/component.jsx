@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -8,9 +8,14 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const taskQueryParams = {
+    errors: true,
+    limit: 100,
+    since: Math.floor(Date.now() / 1000) - 24 * 60 * 60,
+  };
 
   const { data: datastoreData, error: datastoreError } = useWidgetAPI(widget, "status/datastore-usage");
-  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "nodes/localhost/tasks");
+  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "nodes/localhost/tasks", taskQueryParams);
   const { data: hostData, error: hostError } = useWidgetAPI(widget, "nodes/localhost/status");
 
   if (datastoreError || tasksError || hostError) {
@@ -47,10 +52,22 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="proxmoxbackupserver.datastore_usage" value={t("common.percent", { value: datastoreUsage })} />
+      <Block
+        label="proxmoxbackupserver.datastore_usage"
+        value={t("common.percent", { value: datastoreUsage })}
+        highlightValue={datastoreUsage}
+      />
       <Block label="proxmoxbackupserver.failed_tasks_24h" value={failedTasks} />
-      <Block label="proxmoxbackupserver.cpu_usage" value={t("common.percent", { value: cpuUsage })} />
-      <Block label="proxmoxbackupserver.memory_usage" value={t("common.percent", { value: memoryUsage })} />
+      <Block
+        label="proxmoxbackupserver.cpu_usage"
+        value={t("common.percent", { value: cpuUsage })}
+        highlightValue={cpuUsage}
+      />
+      <Block
+        label="proxmoxbackupserver.memory_usage"
+        value={t("common.percent", { value: memoryUsage })}
+        highlightValue={memoryUsage}
+      />
     </Container>
   );
 }

@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import useSWR from "swr";
 
 export default function ProxmoxVM({ service }) {
@@ -25,8 +25,12 @@ export default function ProxmoxVM({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="resources.cpu" value={t("common.percent", { value: data.cpu * 100 })} />
-      <Block label="resources.mem" value={t("common.bytes", { value: data.mem })} />
+      <Block
+        label="resources.cpu"
+        value={t("common.percent", { value: data.cpu * 100 })}
+        highlightValue={data.cpu * 100}
+      />
+      <Block label="resources.mem" value={t("common.bytes", { value: data.mem })} highlightValue={data.mem} />
     </Container>
   );
 }

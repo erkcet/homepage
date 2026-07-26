@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -58,7 +58,7 @@ export default function Component({ service }) {
       <Block label="gamedig.players" value={players} />
       <Block label="gamedig.maxPlayers" value={maxPlayers} />
       <Block label="gamedig.bots" value={bots} />
-      <Block label="gamedig.ping" value={ping} />
+      <Block label="gamedig.ping" value={ping} highlightValue={serverData.online ? serverData.ping : undefined} />
     </Container>
   );
 }

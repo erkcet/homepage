@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import useSWR from "swr";
 
 import { calculateCPUPercent, calculateThroughput, calculateUsedMemory } from "./stats-helpers";
@@ -41,17 +41,19 @@ export default function Component({ service }) {
   }
 
   const { rxBytes, txBytes } = calculateThroughput(statsData.stats);
+  const cpuPercent = calculateCPUPercent(statsData.stats);
+  const usedMemory = calculateUsedMemory(statsData.stats);
 
   return (
     <Container service={service}>
-      <Block label="docker.cpu" value={t("common.percent", { value: calculateCPUPercent(statsData.stats) })} />
+      <Block label="docker.cpu" value={t("common.percent", { value: cpuPercent })} highlightValue={cpuPercent} />
       {statsData.stats.memory_stats.usage && (
-        <Block label="docker.mem" value={t("common.bytes", { value: calculateUsedMemory(statsData.stats) })} />
+        <Block label="docker.mem" value={t("common.bytes", { value: usedMemory })} highlightValue={usedMemory} />
       )}
       {statsData.stats.networks && (
         <>
-          <Block label="docker.rx" value={t("common.bytes", { value: rxBytes })} />
-          <Block label="docker.tx" value={t("common.bytes", { value: txBytes })} />
+          <Block label="docker.rx" value={t("common.bytes", { value: rxBytes })} highlightValue={rxBytes} />
+          <Block label="docker.tx" value={t("common.bytes", { value: txBytes })} highlightValue={txBytes} />
         </>
       )}
     </Container>

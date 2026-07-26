@@ -16,12 +16,16 @@ The Glances widget allows you to monitor the resources (CPU, memory, storage, te
     cpu: true # optional, enabled by default, disable by setting to false
     mem: true # optional, enabled by default, disable by setting to false
     cputemp: true # disabled by default
+    cpuSensorLabel: Package id # optional additional cputemp sensor label prefix
+    unit: imperial # optional for temp, default is metric
     uptime: true # disabled by default
     disk: / # disabled by default, use mount point of disk(s) in glances. Can also be a list (see below)
     diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
     expanded: true # show the expanded view
     label: MyMachine # optional
 ```
+
+The built-in `cputemp` sensor matching already checks common prefixes such as `cpu_thermal`, `Core`, `Tctl`, and `Temperature`. Use `cpuSensorLabel` to add your own Glances sensor label prefix when your system reports CPU temperatures under a different name.
 
 Multiple disks can be specified as:
 
@@ -31,5 +35,3 @@ disk:
   - /boot
   ...
 ```
-
-_Added in v0.4.18, updated in v0.6.11, v0.6.21_

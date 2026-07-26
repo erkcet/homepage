@@ -66,6 +66,20 @@
         "wait": "Please wait",
         "empty_data": "Subsystem status unknown"
     },
+    "unifi_drive": {
+        "healthy": "Healthy",
+        "degraded": "Degraded",
+        "no_data": "No storage data available"
+    },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Run",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
@@ -339,6 +353,16 @@
         "address": "Address",
         "expires": "Expires",
         "never": "Never",
+        "user": "User",
+        "hostname": "Hostname",
+        "name": "Name",
+        "client_version": "Client Version",
+        "os": "OS",
+        "created": "Created",
+        "authorized": "Authorized",
+        "is_external": "Is External",
+        "update_available": "Update Available",
+        "tags": "Tags",
         "last_seen": "Last Seen",
         "now": "Now",
         "years": "{{number}}y",
@@ -347,7 +371,9 @@
         "hours": "{{number}}h",
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
-        "ago": "{{value}} Ago"
+        "ago": "{{value}} Ago",
+        "true": "Yes",
+        "false": "No"
     },
     "technitium": {
         "totalQueries": "Queries",
@@ -448,6 +474,11 @@
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "CPU",
@@ -919,6 +950,19 @@
       "warnings": "Warnings",
       "criticals": "Criticals"
     },
+    "ntfy": {
+      "title": "Title",
+      "priority": "Priority",
+      "lastReceived": "Last Received",
+      "message": "Message",
+      "tags": "Tags",
+      "none": "None",
+      "min": "Min",
+      "low": "Low",
+      "default": "Default",
+      "high": "High",
+      "urgent": "Urgent"
+    },
     "plantit": {
         "events": "Events",
         "plants": "Plants",
@@ -1180,5 +1224,11 @@
         "burned": "Burned",
         "remaining": "Remaining",
         "steps": "Steps"
+    },
+    "syncthing": {
+        "connected": "Connected",
+        "synced": "Synced",
+        "errors": "Errors",
+        "storage": "Storage"
     }
 }

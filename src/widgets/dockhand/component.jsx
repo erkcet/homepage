@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -105,8 +105,16 @@ export default function Component({ service }) {
       <Block label="dockhand.paused" value={t("common.number", { value: paused ?? 0 })} />
       <Block label="dockhand.pending_updates" value={t("common.number", { value: pendingUpdates ?? 0 })} />
       <Block label="dockhand.total" value={t("common.number", { value: totalContainers })} />
-      <Block label="dockhand.cpu" value={t("common.percent", { value: cpuPercent, maximumFractionDigits: 1 })} />
-      <Block label="dockhand.memory" value={t("common.percent", { value: memoryPercent, maximumFractionDigits: 1 })} />
+      <Block
+        label="dockhand.cpu"
+        value={t("common.percent", { value: cpuPercent, maximumFractionDigits: 1 })}
+        highlightValue={cpuPercent}
+      />
+      <Block
+        label="dockhand.memory"
+        value={t("common.percent", { value: memoryPercent, maximumFractionDigits: 1 })}
+        highlightValue={memoryPercent}
+      />
       <Block label="dockhand.images" value={t("common.number", { value: imagesTotal ?? 0 })} />
       <Block label="dockhand.volumes" value={t("common.number", { value: volumesTotal ?? 0 })} />
       <Block

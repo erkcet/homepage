@@ -1,6 +1,6 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -31,12 +31,21 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="jdownloader.downloadCount" value={t("common.number", { value: jdownloaderData.downloadCount })} />
-      <Block label="jdownloader.downloadTotalBytes" value={t("common.bytes", { value: jdownloaderData.totalBytes })} />
+      <Block
+        label="jdownloader.downloadTotalBytes"
+        value={t("common.bytes", { value: jdownloaderData.totalBytes })}
+        highlightValue={jdownloaderData.totalBytes}
+      />
       <Block
         label="jdownloader.downloadBytesRemaining"
         value={t("common.bytes", { value: jdownloaderData.bytesRemaining })}
+        highlightValue={jdownloaderData.bytesRemaining}
       />
-      <Block label="jdownloader.downloadSpeed" value={t("common.byterate", { value: jdownloaderData.totalSpeed })} />
+      <Block
+        label="jdownloader.downloadSpeed"
+        value={t("common.byterate", { value: jdownloaderData.totalSpeed })}
+        highlightValue={jdownloaderData.totalSpeed}
+      />
     </Container>
   );
 }

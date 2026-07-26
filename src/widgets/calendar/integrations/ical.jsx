@@ -1,6 +1,6 @@
 import ICAL from "ical.js";
 import { DateTime } from "luxon";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import { useEffect } from "react";
 
 import Error from "../../../components/services/widget/error";
@@ -85,6 +85,14 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     const getOcurrencesFromRange = (event) => {
       if (!event.rrule) {
         if (event.dtstart.compare(rangeStart) >= 0 && event.dtend.compare(rangeEnd) <= 0) {
+          if (event.type === "vevent" && event.dtstart.isDate && event.dtend.isDate) {
+            const occurrences = [];
+            for (const date = event.dtstart.clone(); date.compare(event.dtend) < 0; date.day += 1) {
+              occurrences.push(date.clone());
+            }
+            return occurrences;
+          }
+
           return [event.dtstart];
         }
 

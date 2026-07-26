@@ -1,10 +1,11 @@
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "next-i18next/pages";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
 import Block from "../components/block";
 import Container from "../components/container";
 
+import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const ChartDual = dynamic(() => import("../components/chart_dual"), { ssr: false });
@@ -16,6 +17,7 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
+  const apiVersion = parseVersionForUrl(version, 3);
   const [, diskName] = widget.metric.split(":");
 
   const [dataPoints, setDataPoints] = useState(
@@ -23,7 +25,7 @@ export default function Component({ service }) {
   );
   const [ratePoints, setRatePoints] = useState(new Array(pointsLimit).fill({ a: 0, b: 0 }, 0, pointsLimit));
 
-  const { data, error } = useWidgetAPI(service.widget, `${version}/diskio`, {
+  const { data, error } = useWidgetAPI(service.widget, `${apiVersion}/diskio`, {
     refreshInterval: Math.max(defaultInterval, refreshInterval),
   });
 

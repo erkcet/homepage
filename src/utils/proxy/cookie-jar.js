@@ -2,12 +2,15 @@ import { Cookie, CookieJar } from "tough-cookie";
 
 const cookieJar = new CookieJar();
 
-export function setCookieHeader(url, params) {
+export function setCookieHeader(url, params, { overwrite = false } = {}) {
   // add cookie header, if we have one in the jar
   const existingCookie = cookieJar.getCookieStringSync(url.toString());
   if (existingCookie) {
     params.headers = params.headers ?? {};
-    params.headers[params.cookieHeader ?? "Cookie"] = existingCookie;
+    const cookieHeader = params.cookieHeader ?? "Cookie";
+    if (overwrite || !params.headers[cookieHeader]) {
+      params.headers[cookieHeader] = existingCookie;
+    }
   }
 }
 

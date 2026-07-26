@@ -18,7 +18,7 @@ jobs:
     name: 'Stale'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v10
+      - uses: actions/stale@1e223db275d687790206a7acac4d1a11bd6fe629 # v10
         with:
           days-before-stale: 7
           days-before-close: 14
@@ -32,7 +32,7 @@ jobs:
     name: 'Lock Old Threads'
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/lock-threads@v6
+      - uses: dessant/lock-threads@89ae32b08ed1a541efecbab17912962a5e38981c # v6.0.2
         with:
           issue-inactive-days: '30'
           pr-inactive-days: '30'
@@ -57,7 +57,7 @@ jobs:
     name: 'Close Answered Discussions'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v8
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             function sleep(ms) {
@@ -113,7 +113,7 @@ jobs:
     name: 'Close Outdated Discussions'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v8
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             function sleep(ms) {
@@ -204,7 +204,7 @@ jobs:
     name: 'Close Unsupported Feature Requests'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v8
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             function sleep(ms) {
